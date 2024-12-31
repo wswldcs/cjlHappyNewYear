@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>送给程佳丽的新年祝福</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: "Microsoft YaHei", sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            color: white;
+            z-index: 1;
+        }
+        .title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .message {
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .heart {
+            color: #ff4d4d;
+            font-size: 1.5em;
+            display: inline-block;
+        }
+        .firework {
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: white;
+        }
+        .snow {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+            }
+        }
+        .countdown {
+            font-size: 3em;
+            margin-bottom: 30px;
+            opacity: 0;
+        }
+        .new-year-text {
+            font-size: 4em;
+            position: fixed;
+            top: 70%;
+            left: 60%;
+            transform: translate(-50%, -50%);
+            color: gold;
+            text-shadow: 0 0 10px rgba(255,215,0,0.7);
+            opacity: 0;
+            display: none;
+            z-index: 1000;
+        }
+        .special-message {
+            font-size: 1.5em;
+            color: #ff69b4;
+            opacity: 0;
+            display: none;
+            position: fixed;
+            top: 10%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 90%;
+            max-width: 800px;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.3);
+            z-index: 1001;
+        }
+        .message-line {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        @keyframes rainbow {
+            0% { color: red; }
+            20% { color: yellow; }
+            40% { color: lime; }
+            60% { color: aqua; }
+            80% { color: fuchsia; }
+            100% { color: red; }
+        }
+        .celebration-button {
+            display: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+            border: none;
+            border-radius: 25px;
+            color: white;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        }
+        .celebration-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+        }
+        .celebration-button:active {
+            transform: translateY(1px);
+        }
+        .audio-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        .audio-controls button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.8);
+            cursor: pointer;
+        }
+        .audio-controls button:hover {
+            background: rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+<body>
+    <div class="new-year-text">2025 新年快乐！</div>
+    <div class="container">
+        <div class="countdown"></div>
+        <button class="celebration-button">点击开启2025</button>
+        <h1 class="title">亲爱的程佳丽宝宝</h1>
+        <div class="message">
+            虽然我们相识的时间不长<br>
+            <span class="heart">🍊</span>但是<span class="heart">🍊</span><br>
+            <span class="heart">✨</span>在2025年的钟声即将敲响之际<span class="heart">✨</span><br>
+            <span class="heart">🌹</span>此刻，我想轻声对你说...<span class="heart">🌹</span><br><br>
+            愿你的笑容永远如初春樱花般灿烂<br>
+            你的梦想像夏日繁星般闪耀<br>
+            你的幸福似秋日硕果般丰盈<br>
+            你的平安如冬日暖阳般恒久<br>
+            <span class="heart">🎉</span>在新的一年里<span class="heart">🎉</span><br>
+            愿你遇见最美的风景<br>
+            品味最甜的快乐<br>
+            收获最暖的感动<br>
+            <span class="heart">💞</span>触碰最真的幸福<span class="heart">💞</span><br>
+            愿你所求皆所愿<br>
+        </div>
+        <div class="special-message">
+            在2025年的崭新篇章<br>
+            愿我们携手同行，共赏四季风光<br>
+            分享每一个欢笑，温暖每一个瞬间<br>
+            让我们一起谱写属于我们的故事<br>
+            在时光的长河里，编织最美的回忆<br><br>
+
+            愿我们的故事，从2025继续<br>
+            一起走过春夏秋冬<br>
+            共赏岁月静好，细品生活甘甜<br>
+            愿新的一年，有我陪伴在你身边<br>
+            让我们一起创造属于我们的故事
+        </div>
+    </div>
+
+    <div class="audio-controls">
+        <button onclick="toggleMusic()">音乐 开/关</button>
+        <span id="now-playing"></span>
+    </div>
+
+    <audio id="countdown-song" loop>
+    <source src="Music/倒数.mp3" type="audio/mpeg">
+    </audio>
+    <audio id="celebration-song">
+        <source src="Music/wake.mp3" type="audio/mpeg">
+    </audio>
+</body>
+</html>
+
+
+<script>
+    // 音乐控制变量和函数
+    let isPlaying = false;
+    const countdownSong = document.getElementById('countdown-song');
+    const celebrationSong = document.getElementById('celebration-song');
+    const nowPlayingText = document.getElementById('now-playing');
+
+    function toggleMusic() {
+        if (isPlaying) {
+            countdownSong.pause();
+            celebrationSong.pause();
+            isPlaying = false;
+            nowPlayingText.textContent = "音乐已关闭";
+        } else {
+            isPlaying = true;
+            // 根据时间决定播放哪首歌
+            const now = new Date();
+            const newYear = new Date('2024-12-31T18:08:00');
+            if (now < newYear) {
+                countdownSong.play();
+                nowPlayingText.textContent = "正在播放: 倒数";
+            } else {
+                celebrationSong.play();
+                nowPlayingText.textContent = "正在播放: Wake";
+            }
+        }
+    }
+
+    // 雪花效果
+    function createSnow() {
+        const snow = document.createElement('div');
+        snow.classList.add('snow');
+        snow.style.left = Math.random() * 100 + 'vw';
+        snow.style.animationDuration = Math.random() * 3 + 2 + 's';
+        snow.style.opacity = Math.random();
+        snow.style.width = snow.style.height = Math.random() * 5 + 5 + 'px';
+        document.body.appendChild(snow);
+        setTimeout(() => snow.remove(), 5000);
+    }
+
+    setInterval(createSnow, 100);
+
+    // 文字动画
+    anime({
+        targets: '.title',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 1000,
+        easing: 'easeOutExpo',
+        delay: 500
+    });
+
+    anime({
+        targets: '.message',
+        opacity: [0, 1],
+        translateY: [20, 0],
+        duration: 1000,
+        easing: 'easeOutExpo',
+        delay: 1000
+    });
+
+    // 心跳动画
+    anime({
+        targets: '.heart',
+        scale: [1, 1.2, 1],
+        duration: 1000,
+        loop: true,
+        easing: 'easeInOutQuad'
+    });
+
+    // 烟花效果
+    function createFirework(x, y) {
+        const colors = ['#ff0', '#f0f', '#0ff', '#ff4d4d'];
+        for (let i = 0; i < 30; i++) {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = x + 'px';
+            firework.style.top = y + 'px';
+            firework.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+            document.body.appendChild(firework);
+
+            const angle = (i / 30) * Math.PI * 2;
+            const velocity = 15;
+            const vx = Math.cos(angle) * velocity;
+            const vy = Math.sin(angle) * velocity;
+
+            anime({
+                targets: firework,
+                translateX: vx * 20,
+                translateY: vy * 20,
+                opacity: [1, 0],
+                duration: 1000,
+                easing: 'easeOutExpo',
+                complete: () => firework.remove()
+            });
+        }
+    }
+
+    // 点击触发烟花
+    document.addEventListener('click', (e) => {
+        createFirework(e.clientX, e.clientY);
+    });
+
+    let fireworkInterval = setInterval(() => {
+        const x = Math.random() * window.innerWidth;
+        const y = Math.random() * window.innerHeight;
+        createFirework(x, y);
+    }, 2000);
+
+    // 新年庆祝效果
+    function newYearCelebration() {
+        // 停止普通的烟花效果
+        clearInterval(fireworkInterval);
+
+        countdownSong.pause(); // 停止倒计时歌曲
+        celebrationSong.play(); // 播放 Wake
+        isPlaying = true; // 设置播放状态为真
+        nowPlayingText.textContent = "正在播放: Wake";
+        // 切换音乐
+        if (isPlaying) {
+            countdownSong.pause();
+            celebrationSong.play();
+            nowPlayingText.textContent = "正在播放: Wake";
+        }
+
+        // 隐藏按钮
+        document.querySelector('.celebration-button').style.display = 'none';
+
+        // 清除现有内容
+        document.querySelector('.countdown').style.display = 'none';
+        document.querySelector('.message').style.opacity = '0';
+        document.querySelector('.title').style.opacity = '0';
+
+        // 显示新年文字
+        const newYearText = document.querySelector('.new-year-text');
+        newYearText.style.display = 'block';
+
+        // 新年文字动画
+        anime({
+            targets: '.new-year-text',
+            opacity: [0, 1],
+            scale: [0.5, 1],
+            duration: 2000,
+            easing: 'easeOutElastic(1, .5)',
+        });
+
+        // 密集烟花效果
+        const intensiveFireworks = setInterval(() => {
+            for(let i = 0; i < 5; i++) {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                createFirework(x, y);
+            }
+        }, 200);
+
+        // 显示特殊消息
+        setTimeout(() => {
+            const specialMessage = document.querySelector('.special-message');
+            specialMessage.style.display = 'block';
+            anime({
+                targets: '.special-message',
+                opacity: [0, 1],
+                translateY: [20, 0],
+                duration: 1000,
+                easing: 'easeOutExpo'
+            });
+        }, 3000);
+
+        // 5秒后恢复正常烟花频率
+        setTimeout(() => {
+            clearInterval(intensiveFireworks);
+            fireworkInterval = setInterval(() => {
+                const x = Math.random() * window.innerWidth;
+                const y = Math.random() * window.innerHeight;
+                createFirework(x, y);
+            }, 2000);
+        }, 5000);
+
+        // 彩虹文字效果
+        newYearText.style.animation = 'rainbow 5s linear infinite';
+    }
+
+    // 倒计时
+    function updateCountdown() {
+        const now = new Date();
+        const newYear = new Date('2024-12-31T19:32:20');
+        const diff = newYear - now;
+
+        if (diff <= 0) {
+            // 倒计时结束，切换音乐
+            if (isPlaying && countdownSong.playing) {
+                countdownSong.pause();
+                celebrationSong.play();
+                nowPlayingText.textContent = "正在播放: Wake";
+            }
+            document.querySelector('.celebration-button').style.display = 'inline-block';
+            clearInterval(countdownInterval);
+            return;
+        }
+
+        const hours = Math.floor(diff / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+        document.querySelector('.countdown').textContent =
+            `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    // 初始化倒计时动画
+    anime({
+        targets: '.countdown',
+        opacity: [0, 1],
+        duration: 1000,
+        easing: 'easeOutExpo'
+    });
+
+    // 绑定按钮点击事件
+    document.querySelector('.celebration-button').addEventListener('click', newYearCelebration);
+
+    // 启动倒计时
+    updateCountdown();
+    const countdownInterval = setInterval(updateCountdown, 1000);
+</script>
