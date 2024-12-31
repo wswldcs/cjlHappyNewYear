@@ -201,10 +201,10 @@
     </div>
 
     <audio id="countdown-song" loop>
-    <source src="Music/倒数.mp3" type="audio/mpeg">
+    <source src="./倒数.mp3" type="audio/mpeg">
     </audio>
     <audio id="celebration-song">
-        <source src="Music/wake.mp3" type="audio/mpeg">
+        <source src="./wake.mp3" type="audio/mpeg">
     </audio>
 </body>
 </html>
@@ -227,7 +227,7 @@
             isPlaying = true;
             // 根据时间决定播放哪首歌
             const now = new Date();
-            const newYear = new Date('2024-12-31T18:08:00');
+            const newYear = new Date('2024-12-31T19:55:00');
             if (now < newYear) {
                 countdownSong.play();
                 nowPlayingText.textContent = "正在播放: 倒数";
@@ -395,7 +395,7 @@
     // 倒计时
     function updateCountdown() {
         const now = new Date();
-        const newYear = new Date('2024-12-31T19:32:20');
+        const newYear = new Date('2024-12-31T19:55:20');
         const diff = newYear - now;
 
         if (diff <= 0) {
