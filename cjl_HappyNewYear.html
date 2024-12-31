@@ -227,7 +227,7 @@
             isPlaying = true;
             // 根据时间决定播放哪首歌
             const now = new Date();
-            const newYear = new Date('2024-12-31T19:55:00');
+            const newYear = new Date('2025-01-01T00:00:00');
             if (now < newYear) {
                 countdownSong.play();
                 nowPlayingText.textContent = "正在播放: 倒数";
@@ -395,7 +395,7 @@
     // 倒计时
     function updateCountdown() {
         const now = new Date();
-        const newYear = new Date('2024-12-31T19:55:20');
+        const newYear = new Date('2025-01-01T00:00:00');
         const diff = newYear - now;
 
         if (diff <= 0) {
